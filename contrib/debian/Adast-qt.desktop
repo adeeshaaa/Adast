@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=1eur
+Comment=1eur P2P Cryptocurrency
+Comment[fr]=1eur, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=1eur, eşten eşe kriptografik sanal para birimi
+Exec=1eur-qt %u
+Terminal=false
+Type=Application
+Icon=1eur128
+MimeType=x-scheme-handler/1eur;
+Categories=Office;Finance;
