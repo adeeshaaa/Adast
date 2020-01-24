@@ -11,7 +11,7 @@
 #include "primitives/block.h"
 #include "protocol.h"
 #include "uint256.h"
-#include "bignum.h"
+//#include "bignum.h"
 #include <vector>
 
 typedef unsigned char MessageStartChars[MESSAGE_START_SIZE];
