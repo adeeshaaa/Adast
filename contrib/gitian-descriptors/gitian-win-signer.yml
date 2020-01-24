@@ -29,7 +29,7 @@ script: |
   cd osslsigncode-1.7.1
   patch -p1 < ${BUILD_DIR}/osslsigncode-Backports-to-1.7.1.patch
 
-  ./configure --without-gsf --without-curl --disable-dependency-tracking
+  ./configure --without-gsf --without-curl --disable-dependency-tracking --disable-tests
   make
   find ${UNSIGNED_DIR} -name "*-unsigned.exe" | while read i; do
     INFILE="`basename "${i}"`"
