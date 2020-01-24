@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/lulworm/1eur
+url=https://github.com/lulworm/Adast
 proc=2
 mem=2000
 lxc=true
@@ -31,7 +31,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the 1eur, gitian-builder, gitian.sigs, and 1eur-detached-sigs.
+Run this script from the directory containing the Adast, gitian-builder, gitian.sigs, and Adast-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -39,7 +39,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/lulworm/1eur
+-u|--url	Specify the URL of the repository. Default is https://github.com/lulworm/Adast
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -233,7 +233,7 @@ if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
     git clone https://github.com/lulworm/gitian.sigs.git
-    git clone https://github.com/lulworm/1eur-detached-sigs.git
+    git clone https://github.com/lulworm/Adast-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -247,7 +247,7 @@ then
 fi
 
 # Set up build
-pushd ./1eur
+pushd ./Adast
 git fetch
 git checkout ${COMMIT}
 popd
@@ -256,7 +256,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./1eur-binaries/${VERSION}
+	mkdir -p ./Adast-binaries/${VERSION}
 
 	# Build Dependencies
 	echo ""
@@ -266,7 +266,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../1eur/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../Adast/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -274,9 +274,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit 1eur=${COMMIT} --url 1eur=${url} ../1eur/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../1eur/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/1eur-*.tar.gz build/out/src/1eur-*.tar.gz ../1eur-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit Adast=${COMMIT} --url Adast=${url} ../Adast/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../Adast/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/Adast-*.tar.gz build/out/src/Adast-*.tar.gz ../Adast-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -284,10 +284,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit 1eur=${COMMIT} --url 1eur=${url} ../1eur/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../1eur/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/1eur-*-win-unsigned.tar.gz inputs/1eur-win-unsigned.tar.gz
-	    mv build/out/1eur-*.zip build/out/1eur-*.exe ../1eur-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit Adast=${COMMIT} --url Adast=${url} ../Adast/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../Adast/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/Adast-*-win-unsigned.tar.gz inputs/Adast-win-unsigned.tar.gz
+	    mv build/out/Adast-*.zip build/out/Adast-*.exe ../Adast-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -295,10 +295,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit 1eur=${COMMIT} --url 1eur=${url} ../1eur/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../1eur/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/1eur-*-osx-unsigned.tar.gz inputs/1eur-osx-unsigned.tar.gz
-	    mv build/out/1eur-*.tar.gz build/out/1eur-*.dmg ../1eur-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit Adast=${COMMIT} --url Adast=${url} ../Adast/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../Adast/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/Adast-*-osx-unsigned.tar.gz inputs/Adast-osx-unsigned.tar.gz
+	    mv build/out/Adast-*.tar.gz build/out/Adast-*.dmg ../Adast-binaries/${VERSION}
 	fi
 	popd
 
@@ -325,27 +325,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../1eur/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../Adast/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../1eur/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../Adast/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../1eur/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../Adast/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../1eur/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../Adast/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../1eur/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../Adast/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd
 fi
 
@@ -360,10 +360,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../1eur/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../1eur/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/1eur-*win64-setup.exe ../1eur-binaries/${VERSION}
-	    mv build/out/1eur-*win32-setup.exe ../1eur-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../Adast/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../Adast/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/Adast-*win64-setup.exe ../Adast-binaries/${VERSION}
+	    mv build/out/Adast-*win32-setup.exe ../Adast-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -371,9 +371,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../1eur/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../1eur/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/1eur-osx-signed.dmg ../1eur-binaries/${VERSION}/1eur-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../Adast/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../Adast/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/Adast-osx-signed.dmg ../Adast-binaries/${VERSION}/Adast-${VERSION}-osx.dmg
 	fi
 	popd
 

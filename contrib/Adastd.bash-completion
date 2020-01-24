@@ -1,12 +1,12 @@
-# bash programmable completion for 1eurd(1) and 1eur-cli(1)
+# bash programmable completion for Adastd(1) and Adast-cli(1)
 # Copyright (c) 2012,2014 Christian von Roques <roques@mti.ag>
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-have 1eurd && {
+have Adastd && {
 
-# call $1eurd for RPC
-_1eur_rpc() {
+# call $Adastd for RPC
+_Adast_rpc() {
     # determine already specified args necessary for RPC
     local rpcargs=()
     for i in ${COMP_LINE}; do
@@ -16,23 +16,23 @@ _1eur_rpc() {
                 ;;
         esac
     done
-    $1eurd "${rpcargs[@]}" "$@"
+    $Adastd "${rpcargs[@]}" "$@"
 }
 
-# Add 1eur accounts to COMPREPLY
-_1eur_accounts() {
+# Add Adast accounts to COMPREPLY
+_Adast_accounts() {
     local accounts
-    accounts=$(_1eur_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
+    accounts=$(_Adast_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
-_1eurd() {
+_Adastd() {
     local cur prev words=() cword
-    local 1eurd
+    local Adastd
 
-    # save and use original argument to invoke 1eurd
-    # 1eurd might not be in $PATH
-    1eurd="$1"
+    # save and use original argument to invoke Adastd
+    # Adastd might not be in $PATH
+    Adastd="$1"
 
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
@@ -53,7 +53,7 @@ _1eurd() {
     if ((cword > 3)); then
         case ${words[cword-3]} in
             addmultisigaddress)
-                _1eur_accounts
+                _Adast_accounts
                 return 0
                 ;;
             getbalance|gettxout|importaddress|importprivkey|listreceivedbyaccount|listreceivedbyaddress|listsinceblock)
@@ -74,7 +74,7 @@ _1eurd() {
                 return 0
                 ;;
             move|setaccount)
-                _1eur_accounts
+                _Adast_accounts
                 return 0
                 ;;
         esac
@@ -90,7 +90,7 @@ _1eurd() {
             return 0
             ;;
         getaccountaddress|getaddressesbyaccount|getbalance|getnewaddress|getreceivedbyaccount|listtransactions|move|sendfrom|sendmany)
-            _1eur_accounts
+            _Adast_accounts
             return 0
             ;;
     esac
@@ -114,12 +114,12 @@ _1eurd() {
 
             # only parse --help if senseful
             if [[ -z "$cur" || "$cur" =~ ^- ]]; then
-                helpopts=$($1eurd --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
+                helpopts=$($Adastd --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
             fi
 
             # only parse help if senseful
             if [[ -z "$cur" || "$cur" =~ ^[a-z] ]]; then
-                commands=$(_1eur_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
+                commands=$(_Adast_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
             fi
 
             COMPREPLY=( $( compgen -W "$helpopts $commands" -- "$cur" ) )
@@ -133,7 +133,7 @@ _1eurd() {
     esac
 }
 
-complete -F _1eurd 1eurd 1eur-cli
+complete -F _Adastd Adastd Adast-cli
 }
 
 # Local variables:

@@ -2,24 +2,24 @@
 
 # backward compatibility for existing gentoo layout
 #
-if [ -d "/var/lib/1eur/.1eur" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/1eur/.1eur"
+if [ -d "/var/lib/Adast/.Adast" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/Adast/.Adast"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/1eurd"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/Adastd"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/1eur/1eur.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/1eurd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/1eurd.pid}
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/Adast/Adast.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/Adastd}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/Adastd.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-1eur}
-BITCOIND_GROUP=${BITCOIND_GROUP:-1eur}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/1eurd}
+BITCOIND_USER=${BITCOIND_USER:-Adast}
+BITCOIND_GROUP=${BITCOIND_GROUP:-Adast}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/Adastd}
 
-name="1eur Daemon"
-description="1eur crypto-currency p2p network daemon"
+name="Adast Daemon"
+description="Adast crypto-currency p2p network daemon"
 
-command="/usr/bin/1eurd"
+command="/usr/bin/Adastd"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -65,7 +65,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run 1eurd."
+		eerror "ERROR: You must set a secure rpcpassword to run Adastd."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -78,7 +78,7 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"1eur Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Adast Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

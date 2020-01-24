@@ -1,6 +1,6 @@
 [Protocol]
-exec=1eur-qt '%u'
-protocol=1eur
+exec=Adast-qt '%u'
+protocol=Adast
 input=none
 output=none
 helper=true

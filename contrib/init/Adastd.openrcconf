@@ -1,25 +1,25 @@
-# /etc/conf.d/1eurd: config file for /etc/init.d/1eurd
+# /etc/conf.d/Adastd: config file for /etc/init.d/Adastd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/1eur/1eur.conf"
+#BITCOIND_CONFIGFILE="/etc/Adast/Adast.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/1eurd"
+#BITCOIND_PIDDIR="/var/run/Adastd"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/1eurd.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/Adastd.pid"
 
-# Where to write 1eurd data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/1eurd"
+# Where to write Adastd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/Adastd"
 
-# User and group to own 1eurd process
-#BITCOIND_USER="1eur"
-#BITCOIND_GROUP="1eur"
+# User and group to own Adastd process
+#BITCOIND_USER="Adast"
+#BITCOIND_GROUP="Adast"
 
-# Path to 1eurd executable
-#BITCOIND_BIN="/usr/bin/1eurd"
+# Path to Adastd executable
+#BITCOIND_BIN="/usr/bin/Adastd"
 
-# Nice value to run 1eurd under
+# Nice value to run Adastd under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: 1eurd.service
-Upstart: 1eurd.conf
-OpenRC:  1eurd.openrc
-         1eurd.openrcconf
-CentOS:  1eurd.init
+SystemD: Adastd.service
+Upstart: Adastd.conf
+OpenRC:  Adastd.openrc
+         Adastd.openrcconf
+CentOS:  Adastd.init
 
 have been made available to assist packagers in creating node packages here.
 

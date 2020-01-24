@@ -78,7 +78,7 @@ HEADERS += src/activemasternode.h \
            src/crypter.h \
            src/obfuscation-relay.h \
            src/obfuscation.h \
-           src/1eur-config.h \
+           src/Adast-config.h \
            src/db.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
@@ -132,7 +132,7 @@ HEADERS += src/activemasternode.h \
            src/wallet_ismine.h \
            src/walletdb.h \
            src/compat/sanity.h \
-           src/config/1eur-config.h \
+           src/config/Adast-config.h \
            src/crypto/common.h \
 		   src/crypto/scrypt.h \
            src/crypto/hmac_sha256.h \
@@ -335,7 +335,7 @@ HEADERS += src/activemasternode.h \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
            src/qt/bitcoinamountfield.moc \
-           src/qt/1eur.moc \
+           src/qt/Adast.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
            src/qt/rpcconsole.moc \
@@ -376,9 +376,9 @@ SOURCES += src/activemasternode.cpp \
            src/crypter.cpp \
            src/obfuscation-relay.cpp \
            src/obfuscation.cpp \
-           src/1eur-cli.cpp \
-           src/1eur-tx.cpp \
-           src/1eur.cpp \
+           src/Adast-cli.cpp \
+           src/Adast-tx.cpp \
+           src/Adast.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
@@ -474,8 +474,8 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
            src/qt/obfuscationconfig.cpp \
-           src/qt/1eur.cpp \
-           src/qt/1eurstrings.cpp \
+           src/qt/Adast.cpp \
+           src/qt/Adaststrings.cpp \
            src/qt/editaddressdialog.cpp \
            src/qt/guiutil.cpp \
            src/qt/intro.cpp \
@@ -553,7 +553,7 @@ SOURCES += src/activemasternode.cpp \
            src/test/sighash_tests.cpp \
            src/test/sigopcount_tests.cpp \
            src/test/skiplist_tests.cpp \
-           src/test/test_1eur.cpp \
+           src/test/test_Adast.cpp \
            src/test/timedata_tests.cpp \
            src/test/transaction_tests.cpp \
            src/test/uint256_tests.cpp \
@@ -644,21 +644,21 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/helpers/memenv/memenv.cc \
            src/leveldb/helpers/memenv/memenv_test.cc \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
-RESOURCES += src/qt/1eur.qrc src/qt/1eur_locale.qrc
+RESOURCES += src/qt/Adast.qrc src/qt/Adast_locale.qrc
 
-TRANSLATIONS += src/qt/locale/1eur_bg.ts \
-                src/qt/locale/1eur_de.ts \
-                src/qt/locale/1eur_en.ts \
-                src/qt/locale/1eur_es.ts \
-                src/qt/locale/1eur_fi.ts \
-                src/qt/locale/1eur_fr.ts \
-                src/qt/locale/1eur_it.ts \
-                src/qt/locale/1eur_ja.ts \
-                src/qt/locale/1eur_pl.ts \
-                src/qt/locale/1eur_pt.ts \
-                src/qt/locale/1eur_ru.ts \
-                src/qt/locale/1eur_sk.ts \
-                src/qt/locale/1eur_sv.ts \
-                src/qt/locale/1eur_vi.ts \
-                src/qt/locale/1eur_zh_CN.ts \
-                src/qt/locale/1eur_zh_TW.ts
+TRANSLATIONS += src/qt/locale/Adast_bg.ts \
+                src/qt/locale/Adast_de.ts \
+                src/qt/locale/Adast_en.ts \
+                src/qt/locale/Adast_es.ts \
+                src/qt/locale/Adast_fi.ts \
+                src/qt/locale/Adast_fr.ts \
+                src/qt/locale/Adast_it.ts \
+                src/qt/locale/Adast_ja.ts \
+                src/qt/locale/Adast_pl.ts \
+                src/qt/locale/Adast_pt.ts \
+                src/qt/locale/Adast_ru.ts \
+                src/qt/locale/Adast_sk.ts \
+                src/qt/locale/Adast_sv.ts \
+                src/qt/locale/Adast_vi.ts \
+                src/qt/locale/Adast_zh_CN.ts \
+                src/qt/locale/Adast_zh_TW.ts
