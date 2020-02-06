@@ -55,13 +55,20 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-        (0, uint256("0x000001224e87559db2f12ca021ee8f950fa33eb9754cb5d4255bd36925d6533f"));
+        (0, uint256("0x000001224e87559db2f12ca021ee8f950fa33eb9754cb5d4255bd36925d6533f"))
+        (100, uint256("0x00000e84f69ceafa09bb88996e2e01342d86ab9fce9b8584fd5bfbdc6492262b"))
+        (1000, uint256("0x419abc36596a20903d8ffeb0d10373de224e3c8664a73eccb5499fc6d863a28f"))
+	(5000, uint256("0x55f2c9e9c5c77ab4638c16e406cd9a6ddcacb7ee9e8db7406659d99ec79211ab"))
+	(10000, uint256("0x0315b09f2996d6a30112fee0343e54183bdce6af13c5ee713dc6a942719d960a"))
+	(20000, uint256("0x5b774379a76442cc1139b62e65f9c43aceb30b71b2bbea66d5a36a66db79e481"))
+	(25550, uint256("0xa6490faa1cfe00d6326e4137dfa03af63d161a6f064ac12b2b1328a0cffa70ec"))
+        (29800, uint256("0xca520b9ea160c61d5f20362a743c0fd9a000c892468825ba2bb18c8da4d1b618"));
 
 
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1559492747, // * UNIX timestamp of last checkpoint block
+    1581008967, // * UNIX timestamp of last checkpoint block
     11,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -157,7 +164,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "0483b30bcdcb12dc843ed79d455da7c10be697dddbbb7439a0a8c4160338a4e322b01edf460318af10a5c901023a5d8d17a46ab9872d60d1abd929f913af303093";
+        strSporkKey = "04f25f195facbb086a0ad67a94bbe4e8cc3e805224ae595fea0b0ac0ffe6199e1559dfc536369b13839271060a58799255d9e3d928a085333093685ffc4f73c02f";
         strObfuscationPoolDummyAddress = "NQTuqzbn3aVbfQvFEFAHJFHoNB68JsVjr7";
         nStartMasternodePayments = 1578497190;
 
@@ -241,7 +248,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "04d32fcf0e8ca12ae8cbed1e8fba544b995901a7fb259acc545fec89d2f65a05b3d280fc7b4eb032f7e8618aba98d6ba56b02857ed322eb7d228f9d0450b278144";
+        strSporkKey = "04f25f195facbb086a0ad67a94bbe4e8cc3e805224ae595fea0b0ac0ffe6199e1559dfc536369b13839271060a58799255d9e3d928a085333093685ffc4f73c02f";
         strObfuscationPoolDummyAddress = "xxVKdbxVogrXrPLMo2qEEyCm1GRv2KZCLy";
         nStartMasternodePayments = 1524873600; //Fri, 09 Jan 2015 21:05:58 GMT
     }
