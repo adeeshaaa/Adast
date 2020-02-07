@@ -1,0 +1,26 @@
+[Unit]
+Description=Adast's distributed currency daemon
+After=network.target
+
+[Service]
+User=Adast
+Group=Adast
+
+Type=forking
+PIDFile=/var/lib/Adastd/Adastd.pid
+
+ExecStart=/usr/bin/Adastd -daemon -pid=/var/lib/Adastd/Adastd.pid \
+          -conf=/etc/Adast/Adast.conf -datadir=/var/lib/Adastd
+
+ExecStop=-/usr/bin/Adast-cli -conf=/etc/Adast/Adast.conf \
+         -datadir=/var/lib/Adastd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

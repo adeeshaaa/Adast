@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Adast
+Comment=Adast P2P Cryptocurrency
+Comment[fr]=Adast, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Adast, eşten eşe kriptografik sanal para birimi
+Exec=Adast-qt %u
+Terminal=false
+Type=Application
+Icon=Adast128
+MimeType=x-scheme-handler/Adast;
+Categories=Office;Finance;

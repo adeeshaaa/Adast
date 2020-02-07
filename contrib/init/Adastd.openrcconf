@@ -1,0 +1,26 @@
+# /etc/conf.d/Adastd: config file for /etc/init.d/Adastd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/Adast/Adast.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/Adastd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/Adastd.pid"
+
+# Where to write Adastd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/Adastd"
+
+# User and group to own Adastd process
+#BITCOIND_USER="Adast"
+#BITCOIND_GROUP="Adast"
+
+# Path to Adastd executable
+#BITCOIND_BIN="/usr/bin/Adastd"
+
+# Nice value to run Adastd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
