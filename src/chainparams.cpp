@@ -58,11 +58,15 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
         (0, uint256("0x000001224e87559db2f12ca021ee8f950fa33eb9754cb5d4255bd36925d6533f"))
         (100, uint256("0x00000e84f69ceafa09bb88996e2e01342d86ab9fce9b8584fd5bfbdc6492262b"))
         (1000, uint256("0x419abc36596a20903d8ffeb0d10373de224e3c8664a73eccb5499fc6d863a28f"))
-	(5000, uint256("0x55f2c9e9c5c77ab4638c16e406cd9a6ddcacb7ee9e8db7406659d99ec79211ab"))
-	(10000, uint256("0x0315b09f2996d6a30112fee0343e54183bdce6af13c5ee713dc6a942719d960a"))
-	(20000, uint256("0x5b774379a76442cc1139b62e65f9c43aceb30b71b2bbea66d5a36a66db79e481"))
-	(25550, uint256("0xa6490faa1cfe00d6326e4137dfa03af63d161a6f064ac12b2b1328a0cffa70ec"))
-        (29800, uint256("0xca520b9ea160c61d5f20362a743c0fd9a000c892468825ba2bb18c8da4d1b618"));
+	    (5000, uint256("0x55f2c9e9c5c77ab4638c16e406cd9a6ddcacb7ee9e8db7406659d99ec79211ab"))
+	    (10000, uint256("0x0315b09f2996d6a30112fee0343e54183bdce6af13c5ee713dc6a942719d960a"))
+	    (20000, uint256("0x5b774379a76442cc1139b62e65f9c43aceb30b71b2bbea66d5a36a66db79e481"))
+	    (25550, uint256("0xa6490faa1cfe00d6326e4137dfa03af63d161a6f064ac12b2b1328a0cffa70ec"))
+        (29800, uint256("0xca520b9ea160c61d5f20362a743c0fd9a000c892468825ba2bb18c8da4d1b618"))
+        (35000, uint256("0xdbf3a20afca18d81a68c25a8b120a463044e515cc7c2aa6e8e1ca0c2c8c60f24"))
+	    (65000, uint256("0xe5005cfc3025b6e4220766d22d23e78e006812e1f3831f013f8b85b629a019bb"))
+	    (85000, uint256("0x7a1be2dfd4d350bebaaff34e9dec91c62db8c2f63364a5d23af83b988c137ee4"))
+	    (88645, uint256("0xc5e668c9ad60abdef77367b57c17764a97c78721614c56e530675e24ba0d3df1"));
 
 
 
@@ -118,7 +122,7 @@ public:
         nMaturity = 20;
         nMasternodeCountDrift = 20;
         nMasternodeCollateralLimit = 200000;
-        nModifierUpdateBlock = 106000;
+        nModifierUpdateBlock = 100000;
         nMaxMoneyOut = 10000000000 * COIN;
         const char* pszTimestamp = "Iran retaliates with missile strike on US forces in Iraq - CNN";
         CMutableTransaction txNew;
@@ -139,10 +143,10 @@ public:
         assert(hashGenesisBlock == uint256("0x00000288b54877a22e7075c8938be919095b743246f598c9bf46916aa13d344f"));
         assert(genesis.hashMerkleRoot == uint256("0xc1527f8b6a4c435e8588a10abc28ad3a2265dad7c94174ad424a1fd7a0a63223"));
 
-        vSeeds.push_back(CDNSSeedData("1", "66.42.117.99"));
-        vSeeds.push_back(CDNSSeedData("2", "Seed1.adastproject.com"));
-
-
+        vSeeds.push_back(CDNSSeedData("seed1.adastproject.com", "seed1.adastproject.com"));
+        vSeeds.push_back(CDNSSeedData("seed2.adastproject.com", "seed2.adastproject.com"));
+        vSeeds.push_back(CDNSSeedData("seed3.adastproject.com", "seed3.adastproject.com"));
+        vSeeds.push_back(CDNSSeedData("seed4.adastproject.com", "seed4.adastproject.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 23); // A
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 73); // W

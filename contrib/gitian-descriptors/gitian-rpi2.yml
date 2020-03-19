@@ -1,5 +1,5 @@
 ---
-name: "Adast-rpi2-2.0.1"
+name: "Adast-rpi2-3.0.0"
 enable_cache: true
 suites:
 - "trusty"
