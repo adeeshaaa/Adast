@@ -186,7 +186,8 @@ Value mnsync(const Array& params, bool fHelp)
     }
 
     if (strMode == "next") {
-        return masternodeSync.GetNextAsset();
+        masternodeSync.GetNextAsset();
+        return masternodeSync.GetSyncStatus();
     }
 
     return "failure";
