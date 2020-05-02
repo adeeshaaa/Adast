@@ -24,6 +24,7 @@
 #include "wallet.h"
 #endif
 #include "masternode-payments.h"
+#include "spork.h"
 
 #include <boost/thread.hpp>
 #include <boost/tuple/tuple.hpp>
@@ -459,7 +460,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 continue;
             }
 
-            while ( pwallet->IsLocked() || !fMintableCoins || nReserveBalance >= pwallet->GetBalance() || !masternodeSync.IsSynced() || (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT) && vNodes.size() < 3) {
+            while ( pwallet->IsLocked() || !fMintableCoins || nReserveBalance >= pwallet->GetBalance() || !masternodeSync.IsSynced() || (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT) && vNodes.size() < 3)) {
                 nLastCoinStakeSearchInterval = 0;
                 MilliSleep(5000);
                 if (!fGenerateBitcoins && !fProofOfStake)
